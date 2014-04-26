@@ -1,5 +1,5 @@
-var attackingPieces = 0;
 var defendingPieces = 0;
+var attackingPieces = 0;
 
 function battle(attackingDiceCount, defendingDiceCount) {
   var attackingDice = rollDice(attackingDiceCount);
@@ -30,7 +30,6 @@ function compareResults(attackingDice, defendingDice) {
   var attackingDiceCount = attackingDice.size;
   var defendingDiceCount = defendingDice.size;
 
-
   for (die in defendingDice) {
     var attackingDie = attackingDice[die];
     var defendingDie = defendingDice[die];
@@ -45,17 +44,17 @@ function compareResults(attackingDice, defendingDice) {
 
 function playTurn(inputAttackingPieces, inputDefendingPieces) {
   attackingPieces = inputAttackingPieces;
-  inputDefendingPieces = inputDefendingPieces;
+  defendingPieces = inputDefendingPieces;
 
-  while ( defendingPieces > 0 && attackingPieces > 1) {
+  while (defendingPieces > 0 && attackingPieces > 1) {
     attackingDiceCount = calculateAttackingDiceCount();
     defendingDiceCount = calculateDefendingDiceCount();
 
     battle(attackingDiceCount, defendingDiceCount);
   }
 
-  console.log("Attacking remaining players: " + attackingPieces);
-  console.log("Defending remaining players: " + defendingPieces);
+  console.log("Attacking remaining pieces: " + attackingPieces);
+  console.log("Defending remaining pieces: " + defendingPieces);
 }
 
 function rollDice(diceCount) {
@@ -70,5 +69,5 @@ function rollDie(){
   return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
 }
 
-playTurn(300, 300);
+playTurn(3, 2);
 
